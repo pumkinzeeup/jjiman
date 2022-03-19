@@ -62,6 +62,7 @@ function init() {
         {src:"img/tap.png", id:"tap"},
 	{src:"img/play.png", id:"play"},
         {src:"img/pause.png", id:"pause"},
+    		]
 
     loader = new createjs.LoadQueue(false);
     loader.addEventListener("progress", handleProgress);
