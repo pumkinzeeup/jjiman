@@ -6,8 +6,8 @@ var started = false;
 var startJump = false;
 var title, tap, musts, play, pause, bgm;
 
-var jumpAmount = 100;
-var jumpTime = 266;
+var jumpAmount = 150;
+var jumpTime = 200;
 
 var dead = false;
 var KEYCODE_SPACE = 32;
@@ -115,8 +115,8 @@ function handleComplete() {
 
     stage.addEventListener("stagemousedown", handleJumpStart);
 
-    counter = new createjs.Text(0, "96px 'Hi Melody'", "#3333ff");
-    counterOutline = new createjs.Text(0, "96px 'Hi Melody'", "#ffffff");
+    counter = new createjs.Text(0, "80px 'Black Han Sans'", "#66B2ff");
+    counterOutline = new createjs.Text(0, "80px 'Black Han Sans'", "#ffffff");
     counterOutline.outline = 5;
     counterOutline.textAlign = 'center';
     counter.textAlign = 'center';
