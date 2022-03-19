@@ -6,12 +6,12 @@ var started = false;
 var startJump = false;
 var title, tap, musts, play, pause, bgm;
 
-var jumpAmount = 150;
-var jumpTime = 200;
+var jumpAmount = 130;
+var jumpTime = 240;
 
 var dead = false;
 var KEYCODE_SPACE = 32;
-var gap = 250;
+var gap = 230;
 var masterPipeDelay = 88;
 var pipeDelay = masterPipeDelay;
 var masterPipeSec = 1000;
@@ -47,12 +47,6 @@ function init() {
         {src:"img/restart.png", id:"start"},
         {src:"img/share.png", id:"share"},
         {src:"img/title.png", id:"title"},
-	{src:"img/cookie1.png", id:"must1"},
-        {src:"img/cookie2.png", id:"must2"},
-        {src:"img/cookie3.png", id:"must3"},
-        {src:"img/cookie4.png", id:"must4"},
-        {src:"img/cookie5.png", id:"must5"},
-        {src:"img/cookie6.png", id:"must6"},
         {src:"img/tap.png", id:"tap"},
     		]
 
