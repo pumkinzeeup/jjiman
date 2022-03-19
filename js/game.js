@@ -4,7 +4,7 @@ var stage, w, h, loader, pipe1height, pipe2height, pipe3height, startX, startY, 
 var background, bird, ground, pipe, bottomPipe, pipes, rotationDelta, counter, counterOutline;
 var started = false; 
 var startJump = false;
-var title, tap, musts, play, bgm;
+var title, tap, must, musts, play, pause, bgm;
 
 var jumpAmount = 120;
 var jumpTime = 266;
@@ -27,7 +27,7 @@ function init() {
             keyE.returnValue = false;
         }
     }
-	
+
     toast("♥♥");
     if (window.top != window) {
         //document.getElementById("header").style.display = "none";
@@ -40,7 +40,7 @@ function init() {
     createjs.Touch.enable(stage);
     // stage.canvas.width = document.body.clientWidth; //document.width is obsolete
     // stage.canvas.height = document.body.clientHeight; //document.height is obsolete
-    
+
     w = stage.canvas.width;
     h = stage.canvas.height;
 
@@ -52,24 +52,30 @@ function init() {
         {src:"img/restart.png", id:"start"},
         {src:"img/share.png", id:"share"},
         {src:"img/title.png", id:"title"},
-	    {src:"img/cookie1.png", id:"must1"},
+        {src:"img/must.png", id:"must"},
+	{src:"img/cookie1.png", id:"must1"},
         {src:"img/cookie2.png", id:"must2"},
         {src:"img/cookie3.png", id:"must3"},
         {src:"img/cookie4.png", id:"must4"},
         {src:"img/cookie5.png", id:"must5"},
         {src:"img/cookie6.png", id:"must6"},
         {src:"img/tap.png", id:"tap"},
-	    {src:"img/play.png", id:"play"}
+	{src:"img/play.png", id:"play"},
+        {src:"img/pause.png", id:"pause"},
     		]
 
     loader = new createjs.LoadQueue(false);
     loader.addEventListener("progress", handleProgress);
     loader.addEventListener("complete", handleComplete);
     loader.loadManifest(manifest);
-    
+
     createjs.Sound.on("fileload", soundComplete);
     createjs.Sound.alternateExtensions = ["mp3"];
-    "assets/");
+    createjs.Sound.registerSounds(
+        [{id:"fail", src:"fail1.mp3"},
+        {id:"bgm", src:"bgm.mp3"}
+	]
+    , "assets/");
 }
 
 function handleProgress(e) {
@@ -80,13 +86,13 @@ function handleComplete() {
     document.getElementsByTagName('body')[0].removeChild(document.getElementById('loading'));
     background = new createjs.Shape();
     background.graphics.beginBitmapFill(loader.getResult("background")).drawRect(0,0,w,h);
-    
+
     var groundImg = loader.getResult("ground");
     ground = new createjs.Shape();
     ground.graphics.beginBitmapFill(groundImg).drawRect(0, 0, w+groundImg.width, groundImg.height);
     ground.tileW = groundImg.width;
     ground.y = h-groundImg.height;
-    
+
     var data = new createjs.SpriteSheet({
         "images": [loader.getResult("bird")],
         //set center and size of frames, center is important for later bird roation
@@ -99,7 +105,7 @@ function handleComplete() {
     startX = (w/2) - (92/2);
     startY = 512;
     wiggleDelta = 18;
-	
+
     // Set initial position and scale 1 to 1
     //bird.setTransform(startX, startY, 1, 1);
     bird.setTransform(startX-60, startY-250, 1, 1);
@@ -109,15 +115,15 @@ function handleComplete() {
     //338, 512
     // Use a tween to wiggle the bird up and down using a sineInOut Ease
     //createjs.Tween.get(bird, {loop:true}).to({y:startY + wiggleDelta}, 380, createjs.Ease.sineInOut).to({y:startY}, 380, createjs.Ease.sineInOut);
-	
+
     stage.addChild(background);
 
     pipes = new createjs.Container(); 
     stage.addChild(pipes);
 
-    
+
     stage.addEventListener("stagemousedown", handleJumpStart);
-    
+
     counter = new createjs.Text(0, "96px 'Black Han Sans'", "#ffffff");
     counterOutline = new createjs.Text(0, "96px 'Black Han Sans'", "#000000");
     counterOutline.outline = 5;
@@ -130,7 +136,7 @@ function handleComplete() {
     counter.alpha = 1;
     counterOutline.alpha = 1;
     //stage.addChild(counter, counterOutline);
-    
+
     title = new createjs.Bitmap(loader.getResult("title"));
     //title.alpha = 0;
     title.scaleX = 0.8;
@@ -139,7 +145,7 @@ function handleComplete() {
     title.y = h/2 - title.image.height/2 * 0.8 - 300;
 	//createjs.Tween.get(title, {loop:true}).to({y:title.x + wiggleDelta}, 380, createjs.Ease.sineInOut).to({y:title.x}, 380, createjs.Ease.sineInOut);
     stage.addChild(title);
-    
+
     tap = new createjs.Bitmap(loader.getResult("tap"));
     //title.alpha = 0;
     tap.scaleX = 0.1;
@@ -148,9 +154,9 @@ function handleComplete() {
     tap.y = h/2 - tap.image.height/2 * 0.1 + 100;
 	createjs.Tween.get(tap, {loop:true}).to({alpha:0, visible:false}, 580, createjs.Ease.sineInOut).to({alpha:100, visible:true}, 580, createjs.Ease.sineInOut);
     stage.addChild(tap);
-    
+
     stage.addChild(bird, ground);
-    
+
     createjs.Ticker.timingMode = createjs.Ticker.RAF;
     createjs.Ticker.addEventListener("tick", tick);
 }
@@ -164,6 +170,35 @@ function soundComplete(event) {
  //   }
 }
 
+function playSound(){
+    var props = new createjs.PlayPropsConfig().set({interrupt: createjs.Sound.INTERRUPT_ANY, loop: -1, volume: 0.5})
+    bgm = createjs.Sound.play("bgm", props);
+    pause = new createjs.Bitmap(loader.getResult("pause"));
+    pause.x = 10;
+    pause.y = 10;
+    stage.addChild(pause);
+    pause.addEventListener("click", addClickToPause);
+}
+
+function addClickToPause(e) {
+    stage.removeChild(pause);
+    play = new createjs.Bitmap(loader.getResult("play"));
+    play.x = 10;
+    play.y = 10;
+    stage.addChild(play);
+    play.addEventListener("click", addClickToPlay);
+    bgm.volume = 0;
+}
+
+function addClickToPlay(e) {
+    stage.removeChild(play);
+    pause = new createjs.Bitmap(loader.getResult("pause"));
+    pause.x = 10;
+    pause.y = 10;
+    stage.addChild(pause);
+    pause.addEventListener("click", addClickToPause);
+    bgm.volume = 1;
+}
 
 function handleFileLoad(event) {
     // A sound has been preloaded. This will fire TWICE
@@ -178,7 +213,22 @@ function handleJumpStart() {
         if (!started) {
             started = true;
             counterShow = true ;                       
-	}
+        }
+
+//        for(var i = 0; i < 3 + Math.floor( Math.random() * 5); i++) {
+//	    	var mustd = new createjs.Bitmap(loader.getResult("must" + Math.floor( Math.random()* 6)));
+//	       	mustd.setTransform(bird.x - 70 - Math.floor( Math.random()* 20), bird.y-10 - Math.floor( Math.random()* 20), 1, 1);
+//			stage.addChild(mustd);
+//			createjs.Tween.get(mustd).to({alpha:1*Math.random(), scale:1*Math.random(), rotation: 0, visible:true}, 80, createjs.Ease.sineInOut).to({alpha:0, scale:0, rotation: 360, visible:false}, 580, createjs.Ease.sineInOut).call(function(){
+//				stage.removeChild(mustd);
+//			});
+//		}
+        var must = new createjs.Bitmap(loader.getResult("must"));
+        must.setTransform(bird.x - 70 - Math.floor( Math.random()* 20), bird.y-10 - Math.floor( Math.random()* 20), 1, 1);
+        stage.addChild(must);
+        createjs.Tween.get(must).to({alpha:1*Math.random(), scale:1*Math.random(), rotation: 0, visible:true}, 80, createjs.Ease.sineInOut).to({alpha:0, scale:0, rotation: 360, visible:false}, 580, createjs.Ease.sineInOut).call(function(){
+            stage.removeChild(must);
+        });
     }
 }
 
@@ -232,7 +282,7 @@ function die() {
     stage.addChild(share);
     createjs.Tween.get(start).to({alpha:1, y: start.y + 50}, 400, createjs.Ease.sineIn).call(addClickToStart);
     createjs.Tween.get(share).to({alpha:1, y: share.y + 50}, 400, createjs.Ease.sineIn).call(addClickToStart);
-    
+
 }
 function removeStart() {
     stage.removeChild(start);
@@ -266,7 +316,7 @@ function tick(event) {
             createjs.Tween.removeTweens ( bird );
         }
     }
-    
+
     if (!dead) {
         ground.x = (ground.x-deltaS*300) % ground.tileW;
     }
