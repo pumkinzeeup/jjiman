@@ -31,7 +31,7 @@ iframe {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: 'Dal Font';
+    font-family: 'Black Han Sans', sans-serif;
     color: white;
     font-size: 5vh;
 }
