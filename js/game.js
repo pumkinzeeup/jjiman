@@ -60,7 +60,6 @@ function init() {
         {src:"img/cookie6.png", id:"must6"},
         {src:"img/tap.png", id:"tap"},
 	{src:"img/play.png", id:"play"},
-        {src:"img/pause.png", id:"pause"},
     		]
 
     loader = new createjs.LoadQueue(false);
