@@ -70,10 +70,6 @@ function init() {
     
     createjs.Sound.on("fileload", soundComplete);
     createjs.Sound.alternateExtensions = ["mp3"];
-    createjs.Sound.registerSounds(
-        [{id:"fail", src:"fail1.mp3"},
-        {id:"bgm", src:"bgm.mp3"}
-	]
     , "assets/");
 }
 
@@ -169,35 +165,6 @@ function soundComplete(event) {
  //   }
 }
 
-function playSound(){
-    var props = new createjs.PlayPropsConfig().set({interrupt: createjs.Sound.INTERRUPT_ANY, loop: -1, volume: 0.5})
-    bgm = createjs.Sound.play("bgm", props);
-    pause = new createjs.Bitmap(loader.getResult("pause"));
-    pause.x = 10;
-    pause.y = 10;
-    stage.addChild(pause);
-    pause.addEventListener("click", addClickToPause);
-}
-
-function addClickToPause(e) {
-    stage.removeChild(pause);
-    play = new createjs.Bitmap(loader.getResult("play"));
-    play.x = 10;
-    play.y = 10;
-    stage.addChild(play);
-    play.addEventListener("click", addClickToPlay);
-    bgm.volume = 0;
-}
-
-function addClickToPlay(e) {
-    stage.removeChild(play);
-    pause = new createjs.Bitmap(loader.getResult("pause"));
-    pause.x = 10;
-    pause.y = 10;
-    stage.addChild(pause);
-    pause.addEventListener("click", addClickToPause);
-    bgm.volume = 1;
-}
 
 function handleFileLoad(event) {
     // A sound has been preloaded. This will fire TWICE
