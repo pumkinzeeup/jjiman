@@ -300,7 +300,7 @@ function goShare() {
     } else {
         countText = counter.text;
     }
-    window.open("https://twitter.com/share?url=https://pumkinzeeup.github.io/GOJJIMAN&text=[HEEKOПG NEWS] " + countText +  "번이나 날았찌. [공식]");
+    window.open("https://twitter.com/share?url=https://pumkinzeeup.github.io/AASDF&text=[날아라찌마니] " + countText +  "번이나 날았찌. [공식]");
 }
 
 function tick(event) {
