@@ -63,6 +63,10 @@ function init() {
     , "assets/");
 }
 
+function handleProgress(e) {
+    document.getElementById('loading').innerHTML = '툰툰이니..?'
+}
+
 function handleComplete() {
     document.getElementsByTagName('body')[0].removeChild(document.getElementById('loading'));
     background = new createjs.Shape();
