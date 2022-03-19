@@ -115,8 +115,8 @@ function handleComplete() {
 
     stage.addEventListener("stagemousedown", handleJumpStart);
 
-    counter = new createjs.Text(0, "96px 'Black Han Sans'", "#ffffff");
-    counterOutline = new createjs.Text(0, "96px 'Black Han Sans'", "#000000");
+    counter = new createjs.Text(0, "96px 'Hi Melody'", "#3333ff");
+    counterOutline = new createjs.Text(0, "96px 'Hi Melody'", "#ffffff");
     counterOutline.outline = 5;
     counterOutline.textAlign = 'center';
     counter.textAlign = 'center';
