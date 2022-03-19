@@ -79,7 +79,7 @@ function init() {
 }
 
 function handleProgress(e) {
-    document.getElementById('loading').innerHTML = '로딩 중...' + (e.loaded * 100).toFixed(0) + '%';
+    document.getElementById('loading').innerHTML = '기다려줘용...' + (e.loaded * 100).toFixed(0) + '%';
 }
 
 function handleComplete() {
