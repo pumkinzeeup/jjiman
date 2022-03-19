@@ -123,7 +123,7 @@ function handleComplete() {
     counter = new createjs.Text(0, "96px 'Black Han Sans'", "#ffffff");
     counterOutline = new createjs.Text(0, "96px 'Black Han Sans'", "#000000");
     counterOutline.outline = 5;
-    counterOutline.textAlign = 'outside';
+    counterOutline.textAlign = 'center';
     counter.textAlign = 'center';
     counterOutline.x = w/2;
     counterOutline.y = 150;
