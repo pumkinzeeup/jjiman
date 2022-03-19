@@ -3,7 +3,7 @@ body, html {
     padding: 0px;
     text-align: center;
     height: 100%;
-    background: #ffffff;
+    background: #000000;
 }
 canvas {
     /*margin-bottom: -4px;*/
@@ -27,8 +27,8 @@ iframe {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: 'Hi Melody', cursive;
-    color: #3333FF;
+    font-family: 'Black Han Sans', sans-serif;
+    color: #66B2FF;
     font-size: 5vh;
 }
 
