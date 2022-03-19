@@ -4,7 +4,7 @@ var stage, w, h, loader, pipe1height, pipe2height, pipe3height, startX, startY, 
 var background, bird, ground, pipe, bottomPipe, pipes, rotationDelta, counter, counterOutline;
 var started = false; 
 var startJump = false;
-var title, tap, musts, play, pause, bgm;
+var title, tap, musts, play, bgm;
 
 var jumpAmount = 120;
 var jumpTime = 266;
@@ -52,14 +52,14 @@ function init() {
         {src:"img/restart.png", id:"start"},
         {src:"img/share.png", id:"share"},
         {src:"img/title.png", id:"title"},
-	{src:"img/cookie1.png", id:"must1"},
+	    {src:"img/cookie1.png", id:"must1"},
         {src:"img/cookie2.png", id:"must2"},
         {src:"img/cookie3.png", id:"must3"},
         {src:"img/cookie4.png", id:"must4"},
         {src:"img/cookie5.png", id:"must5"},
         {src:"img/cookie6.png", id:"must6"},
         {src:"img/tap.png", id:"tap"},
-	{src:"img/play.png", id:"play"},
+	    {src:"img/play.png", id:"play"}
     		]
 
     loader = new createjs.LoadQueue(false);
@@ -69,7 +69,7 @@ function init() {
     
     createjs.Sound.on("fileload", soundComplete);
     createjs.Sound.alternateExtensions = ["mp3"];
-    , "assets/");
+    "assets/");
 }
 
 function handleProgress(e) {
