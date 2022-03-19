@@ -4,7 +4,7 @@ var stage, w, h, loader, pipe1height, pipe2height, pipe3height, startX, startY, 
 var background, bird, ground, pipe, bottomPipe, pipes, rotationDelta, counter, counterOutline;
 var started = false; 
 var startJump = false;
-var title, tap, must, musts, play, pause, bgm;
+var title, tap, musts, play, pause, bgm;
 
 var jumpAmount = 120;
 var jumpTime = 266;
@@ -52,7 +52,6 @@ function init() {
         {src:"img/restart.png", id:"start"},
         {src:"img/share.png", id:"share"},
         {src:"img/title.png", id:"title"},
-        {src:"img/must.png", id:"must"},
 	{src:"img/cookie1.png", id:"must1"},
         {src:"img/cookie2.png", id:"must2"},
         {src:"img/cookie3.png", id:"must3"},
@@ -60,8 +59,6 @@ function init() {
         {src:"img/cookie5.png", id:"must5"},
         {src:"img/cookie6.png", id:"must6"},
         {src:"img/tap.png", id:"tap"},
-	{src:"img/play.png", id:"play"},
-        {src:"img/pause.png", id:"pause"},
     		]
 
     loader = new createjs.LoadQueue(false);
@@ -72,8 +69,7 @@ function init() {
     createjs.Sound.on("fileload", soundComplete);
     createjs.Sound.alternateExtensions = ["mp3"];
     createjs.Sound.registerSounds(
-        [{id:"fail", src:"fail1.mp3"},
-        {id:"bgm", src:"bgm.mp3"}
+        [{id:"fail", src:"fail1.mp3"}
 	]
     , "assets/");
 }
@@ -159,45 +155,6 @@ function handleComplete() {
 
     createjs.Ticker.timingMode = createjs.Ticker.RAF;
     createjs.Ticker.addEventListener("tick", tick);
-}
-
-function soundComplete(event) {
-    //if(event.id == "bgm") {
-//	setTimeout(function() {
-//		document.getElementById('sound').click();
- //       	document.getElementsByTagName('body')[0].removeChild(document.getElementById('sound'));
-//	},1000);
- //   }
-}
-
-function playSound(){
-    var props = new createjs.PlayPropsConfig().set({interrupt: createjs.Sound.INTERRUPT_ANY, loop: -1, volume: 0.5})
-    bgm = createjs.Sound.play("bgm", props);
-    pause = new createjs.Bitmap(loader.getResult("pause"));
-    pause.x = 10;
-    pause.y = 10;
-    stage.addChild(pause);
-    pause.addEventListener("click", addClickToPause);
-}
-
-function addClickToPause(e) {
-    stage.removeChild(pause);
-    play = new createjs.Bitmap(loader.getResult("play"));
-    play.x = 10;
-    play.y = 10;
-    stage.addChild(play);
-    play.addEventListener("click", addClickToPlay);
-    bgm.volume = 0;
-}
-
-function addClickToPlay(e) {
-    stage.removeChild(play);
-    pause = new createjs.Bitmap(loader.getResult("pause"));
-    pause.x = 10;
-    pause.y = 10;
-    stage.addChild(pause);
-    pause.addEventListener("click", addClickToPause);
-    bgm.volume = 1;
 }
 
 function handleFileLoad(event) {
