@@ -28,11 +28,6 @@ function init() {
         }
     }
 
-    toast("내가 한강같은데를 걷고 있는데 갑자기 악어 세마리정도가 나를 악악악 무는거야 그래서 뿌리치고 팍씨 겁주고 약간 내가 이겼거든ㅋ 그리고 얘네 보스가 있지 않을까 해서 더 깊숙한 데로 들어갔는데 그 악어 세마리 포스터같은게 붙어있고 좀 작은애랑 두번째 애 이름은 잘 기억 안나는데 제일 컸던 애 이름이 툰툰이었어");
-    if (window.top != window) {
-        //document.getElementById("header").style.display = "none";
-    }
-
     // createjs.MotionGuidePlugin.install();
 
     stage = new createjs.Stage("testCanvas");
@@ -75,7 +70,7 @@ function init() {
 }
 
 function handleProgress(e) {
-    document.getElementById('loading').innerHTML = '기다려줘용...' + (e.loaded * 100).toFixed(0) + '%';
+    document.getElementById('loading').innerHTML = '내가 한강같은데를 걷고 있는데 갑자기 악어 세마리 정도가 나를 악악악 무는거야 그래서 뿌리치고 팍씨 겁주고 약간 내가 이겼거든ㅋ 그리고 얘네 보스가 있지 않을까 해서 더 깊숙한 데로 들어갔는데 그 악어 세마리 포스터같은게 붙어있고 좀 작은애랑 두번째 애 이름은 잘 기억 안나는데 제일 컸던 애 이름이 툰툰이었어' ;
 }
 
 function handleComplete() {
