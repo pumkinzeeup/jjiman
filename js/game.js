@@ -11,8 +11,8 @@ var jumpTime = 270;
 
 var dead = false;
 var KEYCODE_SPACE = 32;
-var gap = 100;
-var masterPipeDelay = 88;
+var gap = 250;
+var masterPipeDelay = 50;
 var pipeDelay = masterPipeDelay;
 var masterPipeSec = 1000;
 
