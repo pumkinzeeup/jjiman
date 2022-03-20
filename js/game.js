@@ -87,7 +87,7 @@ function handleComplete() {
     bird = new createjs.Sprite(data, "fly");
 
     startX = w/3;
-    startY = 100;
+    startY = h/2;
     wiggleDelta = 20;
 
     // Set initial position and scale 1 to 1
