@@ -12,7 +12,7 @@ var jumpTime = 270;
 var dead = false;
 var KEYCODE_SPACE = 32;
 var gap = 270;
-var masterPipeDelay = 70;
+var masterPipeDelay = 85;
 var pipeDelay = masterPipeDelay;
 var masterPipeSec = 1000;
 
@@ -206,7 +206,7 @@ function restart() {
 function die() {
     createjs.Sound.play("fail");
     dead = true;
-    masterPipeDelay=70;
+    masterPipeDelay=85;
     masterPipeSec=1000;
     bird.gotoAndPlay("dive");
     createjs.Tween.removeTweens ( bird );
@@ -245,7 +245,7 @@ function goShare() {
     } else {
         countText = counter.text;
     }
-    window.open("https://twitter.com/share?url=https://pumkinzeeup.github.io/AASDF&text=[특명]찌만! 툰툰이를 약간 이겨라! " + countText +  "마리를 무찔렀찌!!!!");
+    window.open("https://twitter.com/share?url=https://pumkinzeeup.github.io/AASDF&text=찌만! 툰툰이 " + countText +  "마리를 무찔렀찌!!!!");
 }
 
 function tick(event) {
