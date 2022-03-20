@@ -6,12 +6,12 @@ var started = false;
 var startJump = false;
 var title, tap, musts, play, pause, bgm;
 
-var jumpAmount = 130;
-var jumpTime = 240;
+var jumpAmount = 120;
+var jumpTime = 270;
 
 var dead = false;
 var KEYCODE_SPACE = 32;
-var gap = 230;
+var gap = 250;
 var masterPipeDelay = 88;
 var pipeDelay = masterPipeDelay;
 var masterPipeSec = 1000;
@@ -58,14 +58,9 @@ function init() {
     createjs.Sound.on("fileload", soundComplete);
     createjs.Sound.alternateExtensions = ["mp3"];
     createjs.Sound.registerSounds(
-        [{id:"fail", src:"fail1.mp3"}
-	]
-    , "assets/");
+        [{id:"fail", src:"fail1.mp3"}], "assets/");
 }
 
-function handleProgress(e) {
-    document.getElementById('loading').innerHTML = '툰툰이니..?'
-}
 
 function handleComplete() {
     document.getElementsByTagName('body')[0].removeChild(document.getElementById('loading'));
@@ -87,7 +82,7 @@ function handleComplete() {
     });
     bird = new createjs.Sprite(data, "fly");
 
-    startX = (w/2) - (92/2);
+    startX = 100;
     startY = 512;
     wiggleDelta = 18;
 
