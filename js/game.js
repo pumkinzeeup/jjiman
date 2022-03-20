@@ -86,13 +86,13 @@ function handleComplete() {
     });
     bird = new createjs.Sprite(data, "fly");
 
-    startX = w/3;
+    startX = w/2;
     startY = h/2;
     wiggleDelta = 20;
 
     // Set initial position and scale 1 to 1
     //bird.setTransform(startX, startY, 1, 1);
-    bird.setTransform(startX-60, startY-250, 1, 1);
+    bird.setTransform(startX, startY, 1, 1);
     // Set framerate
     bird.framerate = 30;
 
