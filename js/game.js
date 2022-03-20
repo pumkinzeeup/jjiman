@@ -4,7 +4,7 @@ var stage, w, h, loader, pipe1height, pipe2height, pipe3height, startX, startY, 
 var background, bird, ground, pipe, bottomPipe, pipes, rotationDelta, counter, counterOutline;
 var started = false; 
 var startJump = false;
-var title, tap, musts, play, pause, bgm;
+var title, tap, play, pause, bgm;
 
 var jumpAmount = 120;
 var jumpTime = 270;
@@ -86,9 +86,9 @@ function handleComplete() {
     });
     bird = new createjs.Sprite(data, "fly");
 
-    startX = 100;
+    startX = w/2;
     startY = 512;
-    wiggleDelta = 18;
+    wiggleDelta = 20;
 
     // Set initial position and scale 1 to 1
     //bird.setTransform(startX, startY, 1, 1);
