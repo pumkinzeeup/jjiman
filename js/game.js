@@ -146,6 +146,7 @@ function handleJumpStart() {
     if (!dead) {
         createjs.Tween.removeTweens ( bird );
         bird.gotoAndPlay("jump");
+	bird.rotation = 90;
         startJump = true;
         if (!started) {
             started = true;
