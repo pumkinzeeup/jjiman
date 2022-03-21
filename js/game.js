@@ -146,7 +146,7 @@ function handleJumpStart() {
     if (!dead) {
         createjs.Tween.removeTweens ( bird );
         bird.gotoAndPlay("jump");
-	bird.rotation = -90;
+	bird.rotation = 90;
         startJump = true;
         if (!started) {
             started = true;
@@ -192,7 +192,7 @@ function restart() {
     createjs.Tween.removeTweens ( bird );
     bird.x = startX;
     bird.y = startY;
-    bird.rotation = -90;
+    bird.rotation = 90;
     bird.gotoAndPlay("fly");
     createjs.Tween.get(bird, {loop:true}).to({y:startY + wiggleDelta}, 380, createjs.Ease.sineInOut).to({y:startY}, 380, createjs.Ease.sineInOut);
 }
@@ -204,7 +204,7 @@ function die() {
     masterPipeSec=1000;
     bird.gotoAndPlay("dive");
     createjs.Tween.removeTweens ( bird );
-    createjs.Tween.get(bird).wait(0).to({y:bird.y + 200, rotation: -90}, (380)/1.5, createjs.Ease.linear) //rotate back
+    createjs.Tween.get(bird).wait(0).to({y:bird.y + 200, rotation: 90}, (380)/1.5, createjs.Ease.linear) //rotate back
             .call(diveBird) // change bird to diving position
             .to({y:ground.y+200}, (h - (bird.y+300))/1.5, createjs.Ease.linear); //drop to the bedrock
     createjs.Tween.get(stage).to({alpha:0}, 100).to({alpha:1}, 100);
@@ -342,10 +342,10 @@ function tick(event) {
         createjs
             .Tween
             .get(bird)
-            .to({y:bird.y - rotationDelta, rotation: -100}, rotationDelta, createjs.Ease.linear)
-            .to({y:bird.y - jumpAmount, rotation: -100}, jumpTime - rotationDelta, createjs.Ease.quadOut) //rotate to jump
+            .to({y:bird.y - rotationDelta, rotation: 90}, rotationDelta, createjs.Ease.linear)
+            .to({y:bird.y - jumpAmount, rotation: 90}, jumpTime - rotationDelta, createjs.Ease.quadOut) //rotate to jump
             .to({y:bird.y}, jumpTime, createjs.Ease.quadIn) //reverse jump for smooth arch
-            .to({y:bird.y + 200, rotation: 120}, (380)/1.5, createjs.Ease.linear) //rotate back
+            .to({y:bird.y + 200, rotation: 90}, (380)/1.5, createjs.Ease.linear) //rotate back
             //.call(diveBird) // change bird to diving position
             .to({y:ground.y - 30}, (h - (bird.y+200))/1.5, createjs.Ease.linear); //drop to the bedrock
     }
