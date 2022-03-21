@@ -51,7 +51,6 @@ function init() {
     		]
 
     loader = new createjs.LoadQueue(false);
-    loader.addEventListener("progress", handleProgress);
     loader.addEventListener("complete", handleComplete);
     loader.loadManifest(manifest);
 
@@ -61,13 +60,7 @@ function init() {
         [{id:"fail", src:"fail1.mp3"}], "assets/");
 }
 
-
-function handleProgress(e) {
-    document.getElementById('loading').innerHTML = '툰툰이니..?'
-}
-
 function handleComplete() {
-    document.getElementsByTagName('body')[0].removeChild(document.getElementById('loading'));
     background = new createjs.Shape();
     background.graphics.beginBitmapFill(loader.getResult("background")).drawRect(0,0,w,h);
 
