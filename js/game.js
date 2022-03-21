@@ -142,6 +142,14 @@ function handleFileLoad(event) {
     console.log("Preloaded:", event.id, event.src);
 }
 
+function handleKeyDown(e) {
+                //cross browser issues exist
+                if(!e){ var e = window.event; }
+                switch(e.keyCode) {
+                    case KEYCODE_SPACE: handleJumpStart();
+                }
+            }
+
 function handleJumpStart() {
     if (!dead) {
         createjs.Tween.removeTweens ( bird );
