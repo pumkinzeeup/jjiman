@@ -132,10 +132,10 @@ function handleComplete() {
 
     tap = new createjs.Bitmap(loader.getResult("tap"));
     //title.alpha = 0;
-    tap.scaleX = 0.1;
-    tap.scaleY = 0.1;
-    tap.x = w/2 - tap.image.width/2 * 0.1;
-    tap.y = h/2 - tap.image.height/2 * 0.1 + 100;
+    tap.scaleX = 0.3;
+    tap.scaleY = 0.3;
+    tap.x = w/3 - tap.image.width/2 * 0.1;
+    tap.y = h/3 - tap.image.height/2 * 0.1 + 100;
     stage.addChild(tap);
 
     stage.addChild(bird, ground);
