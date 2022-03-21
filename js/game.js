@@ -98,7 +98,7 @@ function handleComplete() {
 
     //338, 512
     // Use a tween to wiggle the bird up and down using a sineInOut Ease
-    //createjs.Tween.get(bird, {loop:true}).to({y:startY + wiggleDelta}, 380, createjs.Ease.sineInOut).to({y:startY}, 380, createjs.Ease.sineInOut);
+    createjs.Tween.get(bird, {loop:true}).to({y:startY + wiggleDelta}, 380, createjs.Ease.sineInOut).to({y:startY}, 380, createjs.Ease.sineInOut);
 
     stage.addChild(background);
 
