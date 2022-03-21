@@ -85,7 +85,7 @@ function handleComplete() {
 
     // Set initial position and scale 1 to 1
     //bird.setTransform(startX, startY, 1, 1);
-    bird.setTransform(startX, startY, 1, 1);
+    bird.setTransform(startX, startY, 1.3, 1.3);
     // Set framerate
     bird.framerate = 30;
 
