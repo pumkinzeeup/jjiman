@@ -93,8 +93,9 @@ function handleComplete() {
     // Set initial position and scale 1 to 1
     //bird.setTransform(startX, startY, 1, 1);
     bird.setTransform(startX, startY, 1, 1);
+	bird.rotate(90);
     // Set framerate
-    bird.framerate = 60;
+    bird.framerate = 30;
 
     //338, 512
     // Use a tween to wiggle the bird up and down using a sineInOut Ease
@@ -110,7 +111,7 @@ function handleComplete() {
 
     counter = new createjs.Text(0, "80px 'Black Han Sans'", "#66B2ff");
     counterOutline = new createjs.Text(0, "80px 'Black Han Sans'", "#ffffff");
-    counterOutline.outline = 5;
+    counterOutline.outline = 3;
     counterOutline.textAlign = 'center';
     counter.textAlign = 'center';
     counterOutline.x = w/2;
