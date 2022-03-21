@@ -342,29 +342,12 @@ function tick(event) {
         createjs
             .Tween
             .get(bird)
-            .to({y:bird.y - rotationDelta, rotation: 90}, rotationDelta, createjs.Ease.linear)
-            .to({y:bird.y - jumpAmount, rotation: 60}, jumpTime - rotationDelta, createjs.Ease.quadOut) //rotate to jump
+            .to({y:bird.y - rotationDelta, rotation: 90}, rotationDelta, createjs.Ease.linear)//rotate to jump position and jump bird
+            .to({y:bird.y - jumpAmount, rotation: 60}, jumpTime - rotationDelta, createjs.Ease.quadOut) //rotate to jump position and jump bird
             .to({y:bird.y}, jumpTime, createjs.Ease.quadIn) //reverse jump for smooth arch
             .to({y:bird.y + 200, rotation: 40}, (380)/1.5, createjs.Ease.linear) //rotate back
             //.call(diveBird) // change bird to diving position
             .to({y:ground.y - 30}, (h - (bird.y+200))/1.5, createjs.Ease.linear); //drop to the bedrock
     }
     stage.update(event);
-}
-var removeToast;
-
-function toast(string) {
-    var toast = document.getElementById("toast");
-
-	if(toast) {
-	toast.classList.contains("reveal") ?
-        (clearTimeout(removeToast), removeToast = setTimeout(function () {
-            document.getElementById("toast").classList.remove("reveal")
-        }, 2000)) :
-        removeToast = setTimeout(function () {
-            document.getElementById("toast").classList.remove("reveal")
-        }, 2000)
-    toast.classList.add("reveal"),
-        toast.innerText = string
-	}
 }
