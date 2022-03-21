@@ -134,8 +134,8 @@ function handleComplete() {
     //title.alpha = 0;
     tap.scaleX = 0.2;
     tap.scaleY = 0.2;
-    tap.x = w/3
-    tap.y = h/3
+    tap.x = w/2
+    tap.y = h/4
     stage.addChild(tap);
 
     stage.addChild(bird, ground);
