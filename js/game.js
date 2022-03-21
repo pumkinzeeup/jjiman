@@ -342,10 +342,10 @@ function tick(event) {
         createjs
             .Tween
             .get(bird)
-            .to({y:bird.y - rotationDelta, rotation: 90}, rotationDelta, createjs.Ease.linear)
+            .to({y:bird.y - rotationDelta, rotation: 70}, rotationDelta, createjs.Ease.linear)
             .to({y:bird.y - jumpAmount, rotation: 90}, jumpTime - rotationDelta, createjs.Ease.quadOut) //rotate to jump
             .to({y:bird.y}, jumpTime, createjs.Ease.quadIn) //reverse jump for smooth arch
-            .to({y:bird.y + 200, rotation: 90}, (380)/1.5, createjs.Ease.linear) //rotate back
+            .to({y:bird.y + 200, rotation: 70}, (380)/1.5, createjs.Ease.linear) //rotate back
             //.call(diveBird) // change bird to diving position
             .to({y:ground.y - 30}, (h - (bird.y+200))/1.5, createjs.Ease.linear); //drop to the bedrock
     }
