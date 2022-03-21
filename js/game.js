@@ -94,7 +94,7 @@ function handleComplete() {
     //bird.setTransform(startX, startY, 1, 1);
     bird.setTransform(startX, startY, 1, 1);
     // Set framerate
-    bird.framerate = 30;
+    bird.framerate = 60;
 
     //338, 512
     // Use a tween to wiggle the bird up and down using a sineInOut Ease
