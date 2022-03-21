@@ -93,7 +93,6 @@ function handleComplete() {
     // Set initial position and scale 1 to 1
     //bird.setTransform(startX, startY, 1, 1);
     bird.setTransform(startX, startY, 1, 1);
-	bird.setRotate(90);
     // Set framerate
     bird.framerate = 30;
 
@@ -137,7 +136,6 @@ function handleComplete() {
     tap.scaleY = 0.1;
     tap.x = w/2 - tap.image.width/2 * 0.1;
     tap.y = h/2 - tap.image.height/2 * 0.1 + 100;
-	createjs.Tween.get(tap, {loop:true}).to({alpha:0, visible:false}, 580, createjs.Ease.sineInOut).to({alpha:100, visible:true}, 580, createjs.Ease.sineInOut);
     stage.addChild(tap);
 
     stage.addChild(bird, ground);
