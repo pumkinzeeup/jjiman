@@ -142,14 +142,6 @@ function handleFileLoad(event) {
     console.log("Preloaded:", event.id, event.src);
 }
 
-function handleKeyDown(e) {
-                //cross browser issues exist
-                if(!e){ var e = window.event; }
-                switch(e.keyCode) {
-                    case KEYCODE_SPACE: handleJumpStart();
-                }
-            }
-
 function handleJumpStart() {
     if (!dead) {
         createjs.Tween.removeTweens ( bird );
@@ -159,23 +151,6 @@ function handleJumpStart() {
             started = true;
             counterShow = true ;                       
         }
-
-//        for(var i = 0; i < 3 + Math.floor( Math.random() * 5); i++) {
-//	    	var mustd = new createjs.Bitmap(loader.getResult("must" + Math.floor( Math.random()* 6)));
-//	       	mustd.setTransform(bird.x - 70 - Math.floor( Math.random()* 20), bird.y-10 - Math.floor( Math.random()* 20), 1, 1);
-//			stage.addChild(mustd);
-//			createjs.Tween.get(mustd).to({alpha:1*Math.random(), scale:1*Math.random(), rotation: 0, visible:true}, 80, createjs.Ease.sineInOut).to({alpha:0, scale:0, rotation: 360, visible:false}, 580, createjs.Ease.sineInOut).call(function(){
-//				stage.removeChild(mustd);
-//			});
-//		}
-        var must = new createjs.Bitmap(loader.getResult("must"));
-        must.setTransform(bird.x - 70 - Math.floor( Math.random()* 20), bird.y-10 - Math.floor( Math.random()* 20), 1, 1);
-        stage.addChild(must);
-        createjs.Tween.get(must).to({alpha:1*Math.random(), scale:1*Math.random(), rotation: 0, visible:true}, 80, createjs.Ease.sineInOut).to({alpha:0, scale:0, rotation: 360, visible:false}, 580, createjs.Ease.sineInOut).call(function(){
-            stage.removeChild(must);
-        });
-    }
-}
 
 function diveBird() {
     bird.gotoAndPlay("dive");
