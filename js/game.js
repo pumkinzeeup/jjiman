@@ -192,7 +192,7 @@ function restart() {
     createjs.Tween.removeTweens ( bird );
     bird.x = startX;
     bird.y = startY;
-    bird.rotation = 90;
+    bird.rotation = 40;
     bird.gotoAndPlay("fly");
     createjs.Tween.get(bird, {loop:true}).to({y:startY + wiggleDelta}, 380, createjs.Ease.sineInOut).to({y:startY}, 380, createjs.Ease.sineInOut);
 }
