@@ -6,12 +6,12 @@ var started = false;
 var startJump = false;
 var title, tap, play, pause, bgm;
 
-var jumpAmount = 120;
+var jumpAmount = 130;
 var jumpTime = 270;
 
 var dead = false;
 var KEYCODE_SPACE = 32;
-var gap = 270;
+var gap = 280;
 var masterPipeDelay = 85;
 var pipeDelay = masterPipeDelay;
 var masterPipeSec = 1000;
