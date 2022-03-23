@@ -48,6 +48,8 @@ function init() {
         {src:"img/share.png", id:"share"},
         {src:"img/title.png", id:"title"},
         {src:"img/tap.png", id:"tap"},
+	{src:"img/pause.png", id:"pause"},
+	{src:"img/play.png", id:"play"}
     		]
 
     loader = new createjs.LoadQueue(false);
@@ -57,7 +59,7 @@ function init() {
     createjs.Sound.on("fileload", soundComplete);
     createjs.Sound.alternateExtensions = ["mp3"];
     createjs.Sound.registerSounds(
-        [{id:"fail", src:"fail1.mp3"}], "assets/");
+        [{id:"fail", src:"fail1.mp3"},{id:"zzeup", src:"jump.mp3"}], "assets/");
 }
 
 function handleComplete() {
