@@ -85,7 +85,6 @@ function handleComplete() {
     startY = h/2;
     wiggleDelta = 20;
 
-    // Set initial position and scale 1 to 1
     //bird.setTransform(startX, startY, 1, 1);
     bird.setTransform(startX, startY, 1.3, 1.3);
     // Set framerate
@@ -103,8 +102,8 @@ function handleComplete() {
 
     stage.addEventListener("stagemousedown", handleJumpStart);
 
-    counter = new createjs.Text(0, "80px 'Black Han Sans'", "#66B2ff");
-    counterOutline = new createjs.Text(0, "80px 'Black Han Sans'", "#ffffff");
+    counter = new createjs.Text(0, "80px 'Permanent Marker', cursive", "#66B2ff");
+    counterOutline = new createjs.Text(0, "80px 'Permanent Marker', cursive", "#ffffff");
     counterOutline.outline = 3;
     counterOutline.textAlign = 'center';
     counter.textAlign = 'center';
