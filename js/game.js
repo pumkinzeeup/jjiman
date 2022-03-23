@@ -4,7 +4,7 @@ var stage, w, h, loader, pipe1height, pipe2height, pipe3height, startX, startY, 
 var background, bird, ground, pipe, bottomPipe, pipes, rotationDelta, counter, counterOutline;
 var started = false; 
 var startJump = false;
-var title, tap, play, pause, bgm;
+var title, tap, play, pause, bgm, fail, zzeup;
 
 var jumpAmount = 130;
 var jumpTime = 270;
@@ -59,7 +59,7 @@ function init() {
     createjs.Sound.on("fileload", soundComplete);
     createjs.Sound.alternateExtensions = ["mp3"];
     createjs.Sound.registerSounds(
-        [{id:"fail", src:"fail1.mp3"},{id:"zzeup", src:"jump.mp3"}], "assets/");
+        [{id:"fail", src:"fail1.mp3"},{id:"zzeup", src:"jump.mp3"},{id:"zzeup", src:"jump.mp3"},{id:"bgm", src:"bgm.mp3"}], "assets/");
 }
 
 function handleComplete() {
