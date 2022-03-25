@@ -169,8 +169,8 @@ function addClickToPause(e) {
 function addClickToPlay(e) {
     stage.removeChild(play);
     pause = new createjs.Bitmap(loader.getResult("pause"));
-    pause.x = 10;
-    pause.y = 10;
+    pause.x = 30;
+    pause.y = 30;
     stage.addChild(pause);
     pause.addEventListener("click", addClickToPause);
     bgm.volume = 1;
