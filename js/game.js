@@ -186,7 +186,6 @@ function handleJumpStart() {
         createjs.Tween.removeTweens ( bird );
 	createjs.Sound.play("zzeup");
         bird.gotoAndPlay("jump");
-	bird.rotation = 90;
         startJump = true;
         if (!started) {
             started = true;
