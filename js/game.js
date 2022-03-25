@@ -150,8 +150,8 @@ function playSound(){
     var props = new createjs.PlayPropsConfig().set({interrupt: createjs.Sound.INTERRUPT_ANY, loop: -1, volume: 0.5})
     bgm = createjs.Sound.play("bgm", props);
     pause = new createjs.Bitmap(loader.getResult("pause"));
-    pause.x = 10;
-    pause.y = 10;
+    pause.x = 30;
+    pause.y = 30;
     stage.addChild(pause);
     pause.addEventListener("click", addClickToPause);
 }
@@ -159,8 +159,8 @@ function playSound(){
 function addClickToPause(e) {
     stage.removeChild(pause);
     play = new createjs.Bitmap(loader.getResult("play"));
-    play.x = 10;
-    play.y = 10;
+    play.x = 30;
+    play.y = 30;
     stage.addChild(play);
     play.addEventListener("click", addClickToPlay);
     bgm.volume = 0;
@@ -184,6 +184,7 @@ function handleFileLoad(event) {
 function handleJumpStart() {
     if (!dead) {
         createjs.Tween.removeTweens ( bird );
+	createjs.Sound.play("zzeup");
         bird.gotoAndPlay("jump");
 	bird.rotation = 90;
         startJump = true;
