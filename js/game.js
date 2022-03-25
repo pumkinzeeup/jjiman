@@ -103,7 +103,7 @@ function handleComplete() {
     stage.addEventListener("stagemousedown", handleJumpStart);
 
     counter = new createjs.Text(0, "80px 'Permanent Marker', cursive", "#66B2ff");
-    counterOutline = new createjs.Text(0, "80px 'Permanent Marker', cursive", "#ffffff");
+    counterOutline = new createjs.Text(0, "80px 'Permanent Marker', cursive", "#000000");
     counterOutline.outline = 3;
     counterOutline.textAlign = 'center';
     counter.textAlign = 'center';
@@ -136,6 +136,44 @@ function handleComplete() {
 
     createjs.Ticker.timingMode = createjs.Ticker.RAF;
     createjs.Ticker.addEventListener("tick", tick);
+}
+
+function soundComplete(event) {
+    //if(event.id == "bgm") {
+//	setTimeout(function() {
+//		document.getElementById('sound').click();
+ //       	document.getElementsByTagName('body')[0].removeChild(document.getElementById('sound'));
+//	},1000);}
+}
+
+function playSound(){
+    var props = new createjs.PlayPropsConfig().set({interrupt: createjs.Sound.INTERRUPT_ANY, loop: -1, volume: 0.5})
+    bgm = createjs.Sound.play("bgm", props);
+    pause = new createjs.Bitmap(loader.getResult("pause"));
+    pause.x = 10;
+    pause.y = 10;
+    stage.addChild(pause);
+    pause.addEventListener("click", addClickToPause);
+}
+
+function addClickToPause(e) {
+    stage.removeChild(pause);
+    play = new createjs.Bitmap(loader.getResult("play"));
+    play.x = 10;
+    play.y = 10;
+    stage.addChild(play);
+    play.addEventListener("click", addClickToPlay);
+    bgm.volume = 0;
+}
+
+function addClickToPlay(e) {
+    stage.removeChild(play);
+    pause = new createjs.Bitmap(loader.getResult("pause"));
+    pause.x = 10;
+    pause.y = 10;
+    stage.addChild(pause);
+    pause.addEventListener("click", addClickToPause);
+    bgm.volume = 1;
 }
 
 function handleFileLoad(event) {
