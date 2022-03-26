@@ -102,7 +102,7 @@ function handleComplete() {
 
     stage.addEventListener("stagemousedown", handleJumpStart);
 
-    counter = new createjs.Text(0, "80px 'Permanent Marker', cursive", "#66B2ff");
+    counter = new createjs.Text(0, "80px 'Permanent Marker', cursive", "#3d58ff");
     counterOutline = new createjs.Text(0, "80px 'Permanent Marker', cursive", "#000000");
     counterOutline.outline = 3;
     counterOutline.textAlign = 'center';
