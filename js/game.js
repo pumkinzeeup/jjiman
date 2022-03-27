@@ -278,7 +278,7 @@ function goShare() {
     } else {
         countText = counter.text;
     }
-    window.open("https://twitter.com/share?url=https://pumkinzeeup.github.io/AASDF&hashtags=툰툰이를약간이겨라&text=찌만! 툰툰이 [" + countText +  "]마리를 무찔렀찌!!!!");
+    window.open("https://twitter.com/share?url=https://gojjiman.run/&hashtags=툰툰이를약간이겨라&text=찌만! 툰툰이 [" + countText +  "]마리를 무찔렀찌!!!!");
 }
 
 function tick(event) {
