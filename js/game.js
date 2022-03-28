@@ -86,7 +86,7 @@ function handleComplete() {
     wiggleDelta = 20;
 
     //bird.setTransform(startX, startY, 1, 1);
-    bird.setTransform(startX, startY, 1.3, 1.3);
+    bird.setTransform(startX, startY, 1.1, 1.1);
     // Set framerate
     bird.framerate = 30;
 
