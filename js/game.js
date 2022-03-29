@@ -352,7 +352,7 @@ function tick(event) {
         }
 		// over 50
 		//if(counter.text == 50) {
-		//	masterPipeDelay = 38;
+		//	masterPipeDelay = 85;
 		//	masterPipeSec = 500;
 		//}
     }
